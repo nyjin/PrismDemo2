@@ -3,54 +3,35 @@ using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
+using PrismDemo2.Models;
+using PrismDemo2.Services;
 
 namespace PrismDemo2.ViewModels;
 
 public class SettingViewModel : BindableBase, IDialogAware
 {
+    private readonly IAppSettingRepository _settingRepository;
     private string _title;
-    private string _message;
-    private DelegateCommand<string> _closeDialogCommand;
+    private DelegateCommand _closeDialogCommand;
 
     public event Action<IDialogResult> RequestClose;
 
-    public ICommand LoadedCommand { get; }
-
-    public DelegateCommand<string> CloseDialogCommand => _closeDialogCommand ??= new DelegateCommand<string>(OnClose);
-
-    
-    public string Message
-    {
-        get { return _message; }
-        set { SetProperty(ref _message, value); }
-    }
-
-    private void OnClose(string parameter)
-    {
-        ButtonResult result = ButtonResult.None;
-
-        if (parameter?.ToLower() == "true")
-            result = ButtonResult.OK;
-        else if (parameter?.ToLower() == "false")
-            result = ButtonResult.Cancel;
-
-        RequestClose(new DialogResult(result));
-    }
-
+    public DelegateCommand CloseCommand => _closeDialogCommand ??= new DelegateCommand(OnClose);
+    public AppSetting Setting => _settingRepository.Setting;
     public string Title
     {
         get => _title;
         set => SetProperty(ref _title, value);
     }
 
-    public SettingViewModel()
+    public SettingViewModel(IAppSettingRepository settingRepository)
     {
-        LoadedCommand = new DelegateCommand(OnLoaded);
+        _settingRepository = settingRepository;
     }
 
-    private void OnLoaded()
+    private void OnClose()
     {
-        Title = "Hello";
+        RequestClose(new DialogResult(ButtonResult.OK));
     }
 
     public bool CanCloseDialog()
@@ -65,6 +46,6 @@ public class SettingViewModel : BindableBase, IDialogAware
 
     public void OnDialogOpened(IDialogParameters parameters)
     {
-        Message = parameters.GetValue<string>("message");
+        Title = parameters.GetValue<string>("message");
     }
 }

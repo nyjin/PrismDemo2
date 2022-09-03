@@ -5,10 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrismDemo2.Views"
              xmlns:mvvm="http://prismlibrary.com/"
-             Width="300" Height="150"
+             xmlns:viewModels="clr-namespace:PrismDemo2.ViewModels"
+             Width="1024" Height="768"
              mvvm:ViewModelLocator.AutoWireViewModel="True"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=viewModels:SettingViewModel, IsDesignTimeCreatable=True}"
+             >
     <mvvm:Dialog.WindowStyle>
         <Style TargetType="Window">
             <Setter Property="mvvm:Dialog.WindowStartupLocation" Value="CenterOwner" />
@@ -17,7 +20,44 @@
             <Setter Property="SizeToContent" Value="WidthAndHeight"/>
         </Style>
     </mvvm:Dialog.WindowStyle>
-    <Grid>
-        <TextBlock Text="SettingView" FontSize="50" />
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="{Binding Title}" FontSize="20" />
+        <Grid DataContext="{Binding Setting}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <GroupBox DataContext="{Binding Camera}" Margin="10" Padding="10" Grid.Row="0">
+                <GroupBox.Header>
+                    <TextBlock Text="Camera" />
+                </GroupBox.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Version" />
+                        <TextBox Text="{Binding Version}" Width="200" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Width" />
+                        <TextBox Text="{Binding Width}" Width="200" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Height" />
+                        <TextBox Text="{Binding Height}" Width="200" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox DataContext="{Binding IOControl}" Margin="10" Padding="10" Grid.Row="1">
+                <GroupBox.Header>
+                    <TextBlock Text="IOControl" />
+                </GroupBox.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Version" />
+                        <TextBox Text="{Binding Interval}" Width="200" />
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+        <Button Width="150" Content="Close" Command="{Binding CloseCommand}" />
+    </StackPanel>
 </UserControl>

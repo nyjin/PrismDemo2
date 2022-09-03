@@ -23,6 +23,7 @@ namespace PrismDemo2
             containerRegistry.RegisterSingleton<IOControl>();
             containerRegistry.RegisterSingleton<CameraControl>();
             containerRegistry.RegisterSingleton<IWindowService, WindowService>();
+            containerRegistry.RegisterSingleton<IAppSettingRepository, AppSettingRepository>();
             containerRegistry.RegisterSingleton<IAppBootstrapper, AppBootstrapper>();
             containerRegistry.RegisterInstance(SynchronizationContext.Current);
             containerRegistry.RegisterDialog<SettingView, SettingViewModel>("NotificationDialog");

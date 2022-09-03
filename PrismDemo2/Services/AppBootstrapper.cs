@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Prism.Mvvm;
 
 namespace PrismDemo2.Services;
 
@@ -38,40 +37,5 @@ public class AppBootstrapper : IAppBootstrapper
     protected virtual void OnCompleted()
     {
         Completed?.Invoke(this, EventArgs.Empty);
-    }
-}
-
-public class SettingRepository : BindableBase
-{
-    private AppSetting _setting;
-    public AppSetting Setting
-    {
-        get => _setting;
-        set => SetProperty(ref _setting, value);
-    }
-
-    public SettingRepository()
-    {
-
-    }
-}
-
-public interface ISettingRepository
-{
-    AppSetting Setting { get; }
-}
-
-public class AppSetting : BindableBase
-{
-}
-
-
-public class CameraSetting : BindableBase
-{
-    private AppSetting _setting;
-    public AppSetting Setting
-    {
-        get => _setting;
-        set => SetProperty(ref _setting, value);
     }
 }
