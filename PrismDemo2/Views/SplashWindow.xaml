@@ -6,8 +6,10 @@
         xmlns:local="clr-namespace:PrismDemo2"
         xmlns:mvvm="http://prismlibrary.com/"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:viewModels="clr-namespace:PrismDemo2.ViewModels"
         mvvm:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=viewModels:SplashViewModel, IsDesignTimeCreatable=False}"
         Title="SplashScreen" Height="450" Width="800">
     <StackPanel Orientation="Vertical" Width="500" Height="500">
         <TextBlock Text="SplashScreen" FontSize="50" />
