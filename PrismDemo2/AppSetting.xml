@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSetting>
+  <CameraControl Version="1.0" Width="1024" Height="768" />
+  <IOControl Interval="100" />
+</AppSetting>
