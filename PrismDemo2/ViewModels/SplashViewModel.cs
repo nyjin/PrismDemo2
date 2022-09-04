@@ -44,6 +44,6 @@ public class SplashViewModel : BindableBase
 
     private void OnLoadedControl(object? sender, MessageEventArgs e)
     {
-        Message += Environment.NewLine + e.Message;
+        Message = e.Message;
     }
 }

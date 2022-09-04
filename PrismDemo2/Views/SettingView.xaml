@@ -33,15 +33,15 @@
                 </GroupBox.Header>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Version" />
+                        <TextBlock Text="Version" Width="100" />
                         <TextBox Text="{Binding Version}" Width="200" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Width" />
+                        <TextBlock Text="Width" Width="100" />
                         <TextBox Text="{Binding Width}" Width="200" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Height" />
+                        <TextBlock Text="Height" Width="100" />
                         <TextBox Text="{Binding Height}" Width="200" />
                     </StackPanel>
                 </StackPanel>
@@ -52,7 +52,7 @@
                 </GroupBox.Header>
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Version" />
+                        <TextBlock Text="Version" Width="100" />
                         <TextBox Text="{Binding Interval}" Width="200" />
                     </StackPanel>
                 </StackPanel>
