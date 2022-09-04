@@ -17,7 +17,7 @@
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <TextBlock Text="SplashScreen" FontSize="24" />
+        <TextBlock Text="Initializing..." FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" />
         <TextBlock Text="{Binding Message}" Grid.Row="1" HorizontalAlignment="Center" Margin="5" />
     </Grid>
     
