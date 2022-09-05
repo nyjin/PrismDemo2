@@ -1,4 +1,4 @@
-# Prism 프레임워크를 이용한 서비스 시나리오
+# Prism 프레임워크를 이용한 데모 시나리오
 - SplashViewModel 에서 AppBootstrapper를 활용한 주요 컨트롤 초기화(의도적인 Sleep이 있습니다.)
 - Splash → Main으로의 윈도우 전환
 - MainViewModel 에서 초기화된 컨트롤 참조
