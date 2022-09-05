@@ -10,5 +10,5 @@ public class IOControl
         Thread.Sleep(2000);
         Value++;
     }
-    public int Value { get; set; }
+    public static int Value { get; set; }
 }

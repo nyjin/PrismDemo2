@@ -15,5 +15,5 @@ public class CameraControl
         Value++;
     }
 
-    public int Value { get; set; }
+    public static int Value { get; set; }
 }
